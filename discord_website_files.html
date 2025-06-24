@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome to Our Server</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="prices.html">Role Prices</a>
+    <a href="rules.html">Rules</a>
+    <button id="themeToggle">Toggle Dark Mode</button>
+  </nav>
+  <main>
+    <h1>Welcome to Our Discord Server</h1>
+    <p>Join our community and choose a role that suits you. Don’t forget to check the rules and role prices.</p>
+    <p><a class="discord-link" href="https://discord.gg/YourInviteHere" target="_blank">Join our Discord &rarr;</a></p>
+  </main>
+  <script>
+    const rolePrices = [
+      { role: "Wc Tokens", price: 55 },
+      { role: "Vip", price: 15 },
+      { role: "Pro", price: 80 },
+      { role: "Middleman Poll", price: 135 },
+      { role: "Staff Poll", price: 125 },
+      { role: "MM", price: 250 },
+      { role: "Personal Role", price: 200 },
+      { role: "Staff", price: 250 },
+      { role: "Admin", price: 500 },
+      { role: "Ultra Trusted MM Poll", price: 400 }
+    ];
+
+    rolePrices.sort((a, b) => a.price - b.price);
+
+    const pricesPage = document.createElement('div');
+    pricesPage.innerHTML = '<h2>Sorted Role Prices</h2><table><tr><th>Role</th><th>Price</th></tr></table>';
+    document.body.appendChild(pricesPage);
+
+    const table = pricesPage.querySelector('table');
+    rolePrices.forEach(r => {
+      const row = document.createElement('tr');
+      row.innerHTML = `<td>${r.role}</td><td>$${r.price}</td>`;
+      table.appendChild(row);
+    });
+  </script>
+</body>
+</html>
